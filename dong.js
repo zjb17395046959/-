@@ -6,7 +6,7 @@
 function Test(ele,options,width=200){
 	var box=document.querySelector(ele);
 	img();
-	s();
+	
 	//接受图片的路径并创建img标签
 	function img(){
 		for (var i = 0; i < options.length; i++) {
@@ -16,6 +16,9 @@ function Test(ele,options,width=200){
 			//设置图片的宽度都是一样的，高度自适应
 			img.style.cssText=`width:${width}px;
 			position:absolute;`
+			img.onload=function(){
+				s();
+			}
 			box.appendChild(img);
 		}
 	}
@@ -33,7 +36,20 @@ function Test(ele,options,width=200){
 		//y轴的坐标，默认是0，每次图片的高度差来计算
 		var arr=new Array(row_num);
 		console.log(arr);
-		var img=box.children(img);
-		console.log(img);
+		arr.fill(0);//将数组填充为0（数组中的方法）
+		for (var i = 0; i < box.children.length; i++) {
+			//通过循环得到每一个图片
+			var img=box.children[i];
+			// console.log(img);
+			//通过给每一个图片设置x,y值,y为数组中最小的值
+			var y=Math.min(...arr);
+			//找到当前y的下标
+			var index=arr.indexOf(y);
+			var x=(index+1)*gay+index*width;
+			img.style.left=x+'px';
+			img.style.top=y+'px';
+			//更新数组
+			arr[index]=parseInt(img.height)+gay;
+		}
 	}
 }
