@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用column布局瀑布流</title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			font-size: 0;/*使图片之间的间距变小或者是没有*/
+		}
+		.wrap{
+			width: 90%;
+			margin: 10px auto;
+			column-count: 3;/*一行显示多少列，就是一行显示几张图片*/
+			column-gap: 10px;/*图片之间的左右距离编辑*/
+		}
+		.img{
+			width: 100%;
+			margin-bottom: 10px;
+		}
+	</style>
+	<body>
+		<div class="wrap" id="wrap">
+			<!-- flex布局的瀑布流不太好看，也不推荐，还是使用
+			column-count: 3;一行显示3张图片
+			column-gap: 10px;每张图片左右之间的距离是10px
+			这种布局的方式好一点，适合静态布局也就是写死的，不会去自适应，
+			如果需要去适配不同的手机，或者不同的电脑屏幕显示每行的图片不同，
+			那么就要去使用js，动态的去实现了-->
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	(function(){
+		var box=document.querySelector('.wrap');
+		for (var i = 0; i < 20; i++) {
+			var img=document.createElement('img');
+			img.setAttribute('class','img');
+			img.setAttribute('src',`./img/${i+1}.jpg`);
+			box.appendChild(img);
+		}
+	})()
+	
+</script>

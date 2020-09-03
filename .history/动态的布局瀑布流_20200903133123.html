@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动态的布局瀑布流</title>
+		<style type="text/css">
+			.wrap{
+				width: 90%;
+				margin: 10px auto;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			
+		</div>
+	</body>
+</html>
+<script src="dong.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var arr=[];
+	for (var i = 0; i < 20; i++) {
+		//将图片的路径传递过去
+		arr.push(`./img/${i}.jpg`);
+	}
+	var test=new Test(".wrap",arr,20);
+</script>
