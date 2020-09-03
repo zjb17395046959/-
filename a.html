@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.a{
+				width: 90%;
+				height: 400vh;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	 var processor = {
+	    timeoutId: null,
+	    //实际执行的代码
+	    performProcessing: function(){
+	      console.log('performProcessing 方法, 你的处理逻辑')
+	      console.log('hello word')
+	    },
+	    //初始处理调用的方法
+	    process: function() {
+	      console.log('process方法')
+	      clearTimeout(this.timeoutId)
+	      var that = this
+	      this.timeoutId = setTimeout(function(){
+	        that.performProcessing()
+	      }, 100)
+	    }
+	  }
+	    window.onscroll = function(){
+	      processor.process()
+	    }
+</script>

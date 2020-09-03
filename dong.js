@@ -49,7 +49,8 @@ function Test(ele,options,width=200){
 			img.style.left=x+'px';
 			img.style.top=y+'px';
 			//更新数组
-			arr[index]=parseInt(img.height)+gay;
+			arr[index]+=parseInt(img.height)+gay;
+			box.style.height=Math.max(...arr)+'px'
 		}
 	}
 }
